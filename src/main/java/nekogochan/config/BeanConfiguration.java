@@ -1,6 +1,6 @@
 package nekogochan.config;
 
-import nekogochan.database.TestDB;
+import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
     @Bean
-    public TestDB testDB() {
-        return new TestDB();
+    public Gson gson() {
+        return new Gson();
     }
 
 }
