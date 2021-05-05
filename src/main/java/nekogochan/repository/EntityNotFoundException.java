@@ -1,4 +1,4 @@
-package nekogochan.domain;
+package nekogochan.repository;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String entityName, Long id) {

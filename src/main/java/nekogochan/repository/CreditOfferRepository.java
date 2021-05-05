@@ -6,4 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CreditOfferRepository extends JpaRepository<CreditOffer, Long> {
+
+    class NotFoundException extends EntityNotFoundException {
+        public NotFoundException(Long id) {
+            super("Credit offer", id);
+        }
+    }
 }

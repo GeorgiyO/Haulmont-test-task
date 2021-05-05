@@ -6,4 +6,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PaymentGraphRepository extends JpaRepository<PaymentGraph, Long> {
+
+    class NotFoundException extends EntityNotFoundException {
+        public NotFoundException(Long id) {
+            super("Payment graph", id);
+        }
+    }
 }
