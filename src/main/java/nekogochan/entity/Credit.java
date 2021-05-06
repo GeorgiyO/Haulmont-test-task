@@ -3,6 +3,7 @@ package nekogochan.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import javax.validation.constraints.Positive;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@ToString
 public class Credit {
 
     @EqualsAndHashCode.Include
@@ -28,7 +30,7 @@ public class Credit {
     private Long limit;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.DETACH)
     private Bank bank;
 
 }

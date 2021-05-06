@@ -3,15 +3,18 @@ package nekogochan.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @Entity
+@ToString
 public class CreditOffer {
 
     @EqualsAndHashCode.Include
@@ -24,11 +27,15 @@ public class CreditOffer {
     private Long paymentAmount;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.DETACH)
+    private Client client;
+
+    @NotNull
+    @ManyToOne(cascade=CascadeType.DETACH)
     private Credit credit;
 
     @NotNull
-    @OneToOne
-    private PaymentGraph paymentGraph;
+    @OneToMany(cascade=CascadeType.PERSIST)
+    private List<PaymentGraph> paymentGraph;
 
 }

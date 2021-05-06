@@ -5,31 +5,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class DefaultEntityController<Type> {
+public class DefaultEntityController<Entity> {
 
-    private final EntityService<Type> service;
+    private final EntityService<Entity> service;
 
-    public DefaultEntityController(EntityService<Type> service) {
+    public DefaultEntityController(EntityService<Entity> service) {
         this.service = service;
     }
 
     @GetMapping
-    public List<Type> getAll() {
+    public List<Entity> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Type getOne(@PathVariable Long id) {
+    public Entity getOne(@PathVariable Long id) {
         return service.get(id);
     }
 
     @PostMapping
-    public Type add(@RequestBody Type entity) {
+    public Entity add(@RequestBody Entity entity) {
         return service.add(entity);
     }
 
     @PutMapping("/{id}")
-    public Type update(@RequestBody Type newEntity, @PathVariable Long id) {
+    public Entity update(@RequestBody Entity newEntity, @PathVariable Long id) {
         return service.update(newEntity, id);
     }
 

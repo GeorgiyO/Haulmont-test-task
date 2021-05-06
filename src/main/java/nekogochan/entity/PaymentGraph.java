@@ -3,11 +3,10 @@ package nekogochan.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -17,6 +16,7 @@ import java.util.Date;
 @Getter
 @EqualsAndHashCode
 @Entity
+@ToString
 public class PaymentGraph {
 
     @EqualsAndHashCode.Include
@@ -26,6 +26,7 @@ public class PaymentGraph {
 
     @NotNull
     @Future
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     @NotNull
