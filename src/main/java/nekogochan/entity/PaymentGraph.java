@@ -17,7 +17,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @Entity
 @ToString
-public class PaymentGraph {
+public class PaymentGraph implements EntityI {
 
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,5 +40,4 @@ public class PaymentGraph {
     @NotNull
     @Min(0)
     private Long percentagePayment;
-
 }

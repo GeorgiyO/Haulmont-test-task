@@ -14,7 +14,7 @@ import javax.validation.constraints.Positive;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @ToString
-public class Credit {
+public class Credit implements EntityI {
 
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,5 +32,4 @@ public class Credit {
     @NotNull
     @ManyToOne(cascade=CascadeType.DETACH)
     private Bank bank;
-
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Entity
 @ToString
-public class CreditOffer {
+public class CreditOffer implements EntityI {
 
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,5 +37,4 @@ public class CreditOffer {
     @NotNull
     @OneToMany(cascade=CascadeType.PERSIST)
     private List<PaymentGraph> paymentGraph;
-
 }

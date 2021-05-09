@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @ToString
-public class Bank {
+public class Bank implements EntityI {
 
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,5 +27,4 @@ public class Bank {
     @NotBlank
     @Size(max = 250)
     private String name;
-
 }

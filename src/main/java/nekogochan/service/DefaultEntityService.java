@@ -1,5 +1,6 @@
 package nekogochan.service;
 
+import nekogochan.entity.EntityI;
 import nekogochan.repository.EntityNotFoundException;
 import nekogochan.repository.ClientRepository;
 import org.springframework.data.repository.CrudRepository;
@@ -7,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.function.Function;
 
-public class DefaultEntityService<Type> implements EntityService<Type> {
+public class DefaultEntityService<Type extends EntityI> implements EntityService<Type> {
 
     private final CrudRepository<Type, Long> repository;
     private final Function<Long, EntityNotFoundException> notFoundExceptionProvider;
@@ -37,7 +38,10 @@ public class DefaultEntityService<Type> implements EntityService<Type> {
     @Override
     public Type update(Type entity, Long id) {
         return repository.findById(id)
-                         .map((e) -> repository.save(entity))
+                         .map((e) -> {
+                             entity.setId(id);
+                             return repository.save(entity);
+                         })
                          .orElseThrow(() -> notFoundExceptionProvider.apply(id));
     }
 

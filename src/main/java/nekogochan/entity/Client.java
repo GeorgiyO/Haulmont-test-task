@@ -1,14 +1,12 @@
 package nekogochan.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Getter
@@ -16,7 +14,7 @@ import javax.validation.constraints.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @ToString
-public class Client {
+public class Client implements EntityI {
 
     @EqualsAndHashCode.Include
     @NotNull
@@ -49,4 +47,17 @@ public class Client {
     @ManyToOne(cascade=CascadeType.DETACH)
     private Bank bank;
 
+    @Override
+    @Transient
+    @JsonIgnore
+    public long getId() {
+        return passportNumber;
+    }
+
+    @Override
+    @Transient
+    @JsonIgnore
+    public void setId(long id) {
+        passportNumber = id;
+    }
 }
