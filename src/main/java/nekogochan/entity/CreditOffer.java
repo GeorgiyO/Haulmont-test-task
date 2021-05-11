@@ -27,14 +27,14 @@ public class CreditOffer implements EntityI {
     private Long paymentAmount;
 
     @NotNull
-    @ManyToOne(cascade=CascadeType.DETACH)
+    @ManyToOne
     private Client client;
 
     @NotNull
-    @ManyToOne(cascade=CascadeType.DETACH)
+    @ManyToOne
     private Credit credit;
 
     @NotNull
-    @OneToMany(cascade=CascadeType.PERSIST)
+    @OneToMany(cascade=CascadeType.ALL)
     private List<PaymentGraph> paymentGraph;
 }

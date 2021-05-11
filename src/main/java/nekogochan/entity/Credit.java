@@ -30,6 +30,6 @@ public class Credit implements EntityI {
     private Long limit;
 
     @NotNull
-    @ManyToOne(cascade=CascadeType.DETACH)
+    @ManyToOne
     private Bank bank;
 }

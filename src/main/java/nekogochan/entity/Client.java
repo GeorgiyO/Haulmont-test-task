@@ -44,7 +44,7 @@ public class Client implements EntityI {
     @Pattern(regexp = "^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4,6}$")
     private String phone;
 
-    @ManyToOne(cascade=CascadeType.DETACH)
+    @ManyToOne
     private Bank bank;
 
     @Override
