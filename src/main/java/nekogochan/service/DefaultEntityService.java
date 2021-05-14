@@ -10,14 +10,11 @@ import java.util.function.Function;
 
 public class DefaultEntityService<Type extends EntityI> implements EntityService<Type> {
 
-    protected CrudRepository<Type, Long> repository;
-    protected Function<Long, EntityNotFoundException> notFoundExceptionProvider;
+    protected final CrudRepository<Type, Long> repository;
+    protected final Function<Long, EntityNotFoundException> notFoundExceptionProvider;
 
-    public void setRepository(CrudRepository<Type, Long> repository) {
+    public DefaultEntityService(CrudRepository<Type, Long> repository, Function<Long, EntityNotFoundException> notFoundExceptionProvider) {
         this.repository = repository;
-    }
-
-    public void setNotFoundExceptionProvider(Function<Long, EntityNotFoundException> notFoundExceptionProvider) {
         this.notFoundExceptionProvider = notFoundExceptionProvider;
     }
 

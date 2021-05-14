@@ -7,17 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class BankService extends DefaultEntityService<Bank> {
 
-    private final CreditService creditService;
-
-    public BankService(BankRepository repository, CreditService creditService) {
-        setRepository(repository);
-        setNotFoundExceptionProvider(BankRepository.NotFoundException::new);
-        this.creditService = creditService;
+    public BankService(BankRepository repository) {
+        super(repository, BankRepository.NotFoundException::new);
     }
 
-    @Override
-    public boolean delete(Long id) {
-        creditService.deleteByBankId(id);
-        return super.delete(id);
-    }
 }

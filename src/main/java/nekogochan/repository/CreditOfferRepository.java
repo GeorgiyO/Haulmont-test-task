@@ -12,4 +12,6 @@ public interface CreditOfferRepository extends JpaRepository<CreditOffer, Long> 
             super("Credit offer", id);
         }
     }
+
+    void deleteByCreditId(Long id);
 }
