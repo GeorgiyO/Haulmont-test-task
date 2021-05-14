@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientService extends DefaultEntityService<Client> {
     public ClientService(ClientRepository repository) {
-        super(repository, ClientRepository.NotFoundException::new);
+        setRepository(repository);
+        setNotFoundExceptionProvider(ClientRepository.NotFoundException::new);
     }
 }

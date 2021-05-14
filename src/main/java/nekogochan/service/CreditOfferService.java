@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreditOfferService extends DefaultEntityService<CreditOffer> {
     public CreditOfferService(CreditOfferRepository repository) {
-        super(repository, CreditOfferRepository.NotFoundException::new);
+        setRepository(repository);
+        setNotFoundExceptionProvider(CreditOfferRepository.NotFoundException::new);
     }
 }

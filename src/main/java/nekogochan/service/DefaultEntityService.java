@@ -1,8 +1,8 @@
 package nekogochan.service;
 
 import nekogochan.entity.EntityI;
-import nekogochan.repository.EntityNotFoundException;
 import nekogochan.repository.ClientRepository;
+import nekogochan.repository.EntityNotFoundException;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -10,11 +10,14 @@ import java.util.function.Function;
 
 public class DefaultEntityService<Type extends EntityI> implements EntityService<Type> {
 
-    private final CrudRepository<Type, Long> repository;
-    private final Function<Long, EntityNotFoundException> notFoundExceptionProvider;
+    protected CrudRepository<Type, Long> repository;
+    protected Function<Long, EntityNotFoundException> notFoundExceptionProvider;
 
-    public DefaultEntityService(CrudRepository<Type, Long> repository, Function<Long, EntityNotFoundException> notFoundExceptionProvider) {
+    public void setRepository(CrudRepository<Type, Long> repository) {
         this.repository = repository;
+    }
+
+    public void setNotFoundExceptionProvider(Function<Long, EntityNotFoundException> notFoundExceptionProvider) {
         this.notFoundExceptionProvider = notFoundExceptionProvider;
     }
 
