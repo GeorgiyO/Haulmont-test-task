@@ -10,4 +10,5 @@ public class CreditService extends DefaultEntityService<Credit> {
     public CreditService(CreditRepository repository) {
         super(repository, CreditRepository.NotFoundException::new);
     }
+
 }

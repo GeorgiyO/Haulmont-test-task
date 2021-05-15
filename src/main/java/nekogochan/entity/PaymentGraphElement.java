@@ -16,7 +16,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @Entity
 @ToString
-public class PaymentGraph implements EntityI {
+public class PaymentGraphElement implements EntityI {
 
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.AUTO)

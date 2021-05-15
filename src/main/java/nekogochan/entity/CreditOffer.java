@@ -36,5 +36,5 @@ public class CreditOffer implements EntityI {
 
     @NotNull
     @OneToMany(cascade=CascadeType.ALL)
-    private List<PaymentGraph> paymentGraph;
+    private List<PaymentGraphElement> paymentGraph;
 }

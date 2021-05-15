@@ -8,7 +8,6 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.*;
 
@@ -46,9 +45,6 @@ public class Client implements EntityI {
     @NotBlank
     @Pattern(regexp = "^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4,6}$")
     private String phone;
-
-    @ManyToOne
-    private Bank bank;
 
     @Override
     @Transient

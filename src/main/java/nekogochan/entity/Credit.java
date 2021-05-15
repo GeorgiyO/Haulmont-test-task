@@ -23,6 +23,7 @@ public class Credit implements EntityI {
 
     @NotNull
     @Positive
+    @Column(name = "ebala")
     private Float percentage;
 
     @NotNull
