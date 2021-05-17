@@ -4,6 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,7 +25,6 @@ public class Credit implements EntityI {
 
     @NotNull
     @Positive
-    @Column(name = "ebala")
     private Float percentage;
 
     @NotNull
@@ -32,5 +33,6 @@ public class Credit implements EntityI {
 
     @NotNull
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Bank bank;
 }

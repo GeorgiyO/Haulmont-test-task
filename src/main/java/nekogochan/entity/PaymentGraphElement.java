@@ -1,5 +1,6 @@
 package nekogochan.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,4 +40,5 @@ public class PaymentGraphElement implements EntityI {
     @NotNull
     @Min(0)
     private Long percentagePayment;
+
 }

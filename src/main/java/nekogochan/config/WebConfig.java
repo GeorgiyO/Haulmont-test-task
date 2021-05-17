@@ -11,14 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     @Value("${client.web.url}")
-    private String webClientUrl;
+    private String[] webClientsUrl;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry
             .addMapping("/**")
             .allowedMethods("*")
-            .allowedOrigins(webClientUrl)
+            .allowedOrigins(webClientsUrl)
         ;
     }
 }
